@@ -16,6 +16,7 @@ export function RoutesRenderer({ routes }: RoutesRendererProps) {
 }
 
 const HomePage = React.lazy(() => import("../../features/home/index"));
+const ChatPage = React.lazy(() => import("../../features/chat/index"));
 
 const AppRoutesLayout: FC<ReceivedProps> = ({ props }) => {
   const getRoutes = () => [
@@ -27,6 +28,11 @@ const AppRoutesLayout: FC<ReceivedProps> = ({ props }) => {
         {
           path: ROUTE_PATHS.DEFAULT,
           element: <HomePage />,
+          title: "",
+        },
+        {
+          path: ROUTE_PATHS.CHAT,
+          element: <ChatPage />,
           title: "",
         },
       ],
