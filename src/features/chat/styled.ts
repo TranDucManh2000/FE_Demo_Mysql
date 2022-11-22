@@ -2,18 +2,20 @@ import styled from "styled-components";
 
 const ChatWrapper = styled.div`
   display: flex;
+  margin-top: 20px;
+  max-width: 80%;
   justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  > h1 {
-    color: red;
-    width: 100%;
-    text-align: center;
+  .messager {
+    margin: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    padding: 10px;
   }
-  > h2 {
-    color: violet;
-    width: 100%;
-    text-align: center;
+  .user {
+    color: red;
+  }
+  .admin {
+    color: black;
   }
   @media screen and (max-width: 1600px) {
     background-color: #fff;
