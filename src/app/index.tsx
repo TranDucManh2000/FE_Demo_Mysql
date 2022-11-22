@@ -5,7 +5,7 @@ import AppRoutes from "./routes";
 import { Provider } from "react-redux";
 import { store } from "./store";
 
-const AppLayout: FC<ReceivedProps> = ({ current, setCurrent }) => {
+const AppLayout: FC<ReceivedProps> = () => {
   return (
     <Provider store={store}>
       <Router>
