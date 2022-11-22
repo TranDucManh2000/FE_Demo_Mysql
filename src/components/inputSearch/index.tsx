@@ -1,5 +1,5 @@
-import { AudioOutlined } from "@ant-design/icons";
-import { Input } from "antd";
+import { AudioFilled, AudioOutlined } from "@ant-design/icons";
+import { Button, Input } from "antd";
 import { FC } from "react";
 import useSearch from "./hook";
 import { ReceivedProps } from "./hook";
@@ -24,7 +24,11 @@ const SearchLayout: FC<ReceivedProps> = ({ props }) => {
         size="large"
         suffix={suffix}
         onSearch={onSearch}
+        className="search"
       />
+      <Button>
+        <AudioFilled />
+      </Button>
     </SearchWrapper>
   );
 };
