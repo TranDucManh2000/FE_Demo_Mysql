@@ -1,4 +1,8 @@
-export type ReceivedProps = Record<string, any>;
+import { ButtonProps } from "antd";
+
+export type ReceivedProps = ButtonProps & {
+  styles?: "Circle_Gray" | "Rectangle_Gray";
+};
 
 const useButton = (props: ReceivedProps) => {
   return {

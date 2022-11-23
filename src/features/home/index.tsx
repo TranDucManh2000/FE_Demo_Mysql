@@ -1,56 +1,53 @@
-import { Image, Input } from "antd";
+import { Avatar, Button, Card } from "antd";
+import Meta from "antd/lib/card/Meta";
 import { FC } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../app/store";
-import ButtonCustom from "../../components/Button";
 import Header from "../../components/header";
-import { request } from "../../config/libraries/axios";
 import useHome, { ReceivedProps } from "./hook";
-import { setCounter } from "./slice";
 import HomeWrapper from "./styled";
 
 const HomeLayout: FC<ReceivedProps> = ({ current, img, setImg }) => {
-  const count = useSelector((state: RootState) => state.counter.value);
-  const dispatch = useDispatch();
-
-  const demoAxios = () => {
-    request
-      .post("category", {
-        categoryName: "demoreact2",
-      })
-      .then(function (response) {
-        console.log("response", response);
-      })
-      .catch((error) => {
-        console.log("error", error);
-      });
-  };
-
-  function imgToBase64(element: any) {
-    const file = element.target.files[0];
-    const reader = new FileReader();
-    reader.onloadend = function () {
-      setImg(reader.result);
-    };
-    reader.readAsDataURL(file);
-  }
-
   return (
     <>
       <Header />
       <HomeWrapper>
-        <h1>{current}</h1>
-        <h1> count redux = {count}</h1>
-        <ButtonCustom onClick={() => dispatch(setCounter(5))}>
-          set count
-        </ButtonCustom>
-        <h2>-------</h2>
-        <h1>Axios</h1>
-        <ButtonCustom onClick={demoAxios}>Axios</ButtonCustom>
-        <h2>-------</h2>
-        <h1>Base64</h1>
-        <Input type="file" onChange={(e) => imgToBase64(e)}></Input>
-        <Image width={200} preview={false} src={img} />
+        <div className="grop_btn">
+          <div>
+            <Button>Demo</Button>
+          </div>
+        </div>
+        <div className="grop_card">
+          <Card
+            style={{ width: 300, border: "none" }}
+            cover={
+              <iframe
+                style={{ borderRadius: 10 }}
+                width="270"
+                height="200"
+                src="https://www.youtube.com/embed/5Yn2rdl6MgE"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            }
+          >
+            <Meta
+              avatar={
+                <Avatar
+                  style={{ width: 40, height: 40 }}
+                  src="https://joeschmoe.io/api/v1/random"
+                />
+              }
+              title="[Playlist] Tình ca tình ta"
+              description={
+                <p>
+                  manh tran <br />
+                  1ty luot xem . 5 thang truoc
+                </p>
+              }
+            />
+          </Card>
+        </div>
       </HomeWrapper>
     </>
   );

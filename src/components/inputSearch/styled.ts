@@ -8,7 +8,7 @@ const SearchWrapper = styled.div`
       border-top-left-radius: 40px !important;
       border-bottom-left-radius: 40px !important;
       :first-child {
-        min-width: 350px;
+        min-width: 550px;
       }
     }
     .ant-btn {

@@ -1,9 +1,19 @@
 import { FC } from "react";
 import useButton, { ReceivedProps } from "./hook";
-import ButtonWrapper from "./styled";
+import { ButtonDefault, CircleGray, RectangleGray } from "./styled";
 
-const ButtonLayout: FC<ReceivedProps> = ({ onClick, ...props }) => {
-  return <ButtonWrapper onClick={onClick}>{props.children}</ButtonWrapper>;
+const ButtonLayout: FC<ReceivedProps> = ({ onClick, styles, ...props }) => {
+  return styles ? (
+    styles === "Circle_Gray" ? (
+      <CircleGray onClick={onClick}>{props.children}</CircleGray>
+    ) : styles === "Rectangle_Gray" ? (
+      <RectangleGray onClick={onClick}>{props.children}</RectangleGray>
+    ) : (
+      <ButtonDefault onClick={onClick}>{props.children}</ButtonDefault>
+    )
+  ) : (
+    <ButtonDefault onClick={onClick}>{props.children}</ButtonDefault>
+  );
 };
 
 const ButtonCustom: FC<ReceivedProps> = (props) => (

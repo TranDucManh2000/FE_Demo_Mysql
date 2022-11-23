@@ -5,19 +5,29 @@ const HomeWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  > h1 {
-    color: red;
+  .grop_btn {
+    display: flex;
     width: 100%;
-    text-align: center;
+    justify-content: center;
+    > div {
+      /* background-color: red; */
+      width: 50%;
+      display: flex;
+      justify-content: space-around;
+    }
   }
-  > h2 {
-    color: violet;
-    width: 100%;
-    text-align: center;
+  .grop_card {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 300px;
+    .ant-card {
+      margin: 10px;
+    }
   }
-  @media screen and (max-width: 1600px) {
+  /* @media screen and (max-width: 1600px) {
     background-color: #fff;
-  }
+  } */
 `;
 
 export default HomeWrapper;
