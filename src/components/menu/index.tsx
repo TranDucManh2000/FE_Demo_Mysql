@@ -1,9 +1,9 @@
 import {
-  ContainerOutlined,
-  DesktopOutlined,
+  HistoryOutlined,
+  HomeOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  PieChartOutlined,
+  SettingOutlined,
 } from "@ant-design/icons";
 import { Button, Image, Menu, MenuProps } from "antd";
 import { FC } from "react";
@@ -29,9 +29,9 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem("Option 1", "1", <PieChartOutlined />),
-  getItem("Option 2", "2", <DesktopOutlined />),
-  getItem("Option 3", "3", <ContainerOutlined />),
+  getItem("Home", "Home", <HomeOutlined />),
+  getItem("History", "History", <HistoryOutlined />),
+  getItem("Setting", "Setting", <SettingOutlined />),
 ];
 
 const MenuLayout: FC<ReceivedProps> = ({ collapsed, toggleCollapsed }) => {

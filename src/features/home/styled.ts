@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const HomeWrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   .grop_btn {
@@ -10,10 +9,14 @@ const HomeWrapper = styled.div`
     width: 100%;
     justify-content: center;
     > div {
-      /* background-color: red; */
       width: 50%;
       display: flex;
       justify-content: space-around;
+    }
+    .btn_menu {
+      min-width: 60px;
+      height: 32px;
+      border-radius: 5px;
     }
   }
   .grop_card {
@@ -23,6 +26,9 @@ const HomeWrapper = styled.div`
     margin-left: 300px;
     .ant-card {
       margin: 10px;
+    }
+    .ant-card-body {
+      padding-left: 0px;
     }
   }
   /* @media screen and (max-width: 1600px) {

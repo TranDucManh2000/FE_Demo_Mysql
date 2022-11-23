@@ -1,4 +1,4 @@
-import { AudioFilled, AudioOutlined } from "@ant-design/icons";
+import { AudioFilled, AudioOutlined, SearchOutlined } from "@ant-design/icons";
 import { Button, Input } from "antd";
 import { FC } from "react";
 import useSearch from "./hook";
@@ -20,13 +20,13 @@ const SearchLayout: FC<ReceivedProps> = ({ props }) => {
     <SearchWrapper>
       <Search
         placeholder="input search text"
-        enterButton="Search"
+        enterButton={<SearchOutlined />}
         size="large"
         suffix={suffix}
         onSearch={onSearch}
         className="search"
       />
-      <Button>
+      <Button className="btn_void">
         <AudioFilled />
       </Button>
     </SearchWrapper>

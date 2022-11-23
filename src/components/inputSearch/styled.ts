@@ -16,6 +16,15 @@ const SearchWrapper = styled.div`
       border-bottom-right-radius: 40px !important;
     }
   }
+  .btn_void {
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+  }
 `;
 
 export default SearchWrapper;

@@ -16,17 +16,23 @@ export function RoutesRenderer({ routes }: RoutesRendererProps) {
 }
 
 const HomePage = React.lazy(() => import("../../features/home/index"));
+const WatchPage = React.lazy(() => import("../../features/watch/index"));
 
 const AppRoutesLayout: FC<ReceivedProps> = ({ props }) => {
   const getRoutes = () => [
     {
-      path: ROUTE_PATHS.PUBLIC,
+      path: ROUTE_PATHS.DEFAULT,
       element: <PublicRoute />,
       title: "",
       children: [
         {
           path: ROUTE_PATHS.DEFAULT,
           element: <HomePage />,
+          title: "",
+        },
+        {
+          path: ROUTE_PATHS.WATCH,
+          element: <WatchPage />,
           title: "",
         },
       ],

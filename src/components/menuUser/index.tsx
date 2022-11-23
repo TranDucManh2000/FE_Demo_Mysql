@@ -1,4 +1,4 @@
-import { BellOutlined } from "@ant-design/icons";
+import { BellOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Avatar, Modal } from "antd";
 import { FC, useState } from "react";
 import useMenuUser from "./hook";
@@ -21,16 +21,28 @@ const MenuUserLayout: FC<ReceivedProps> = ({ props }) => {
         src={"https://joeschmoe.io/api/v1/random"}
       />
       <Modal
-        title="20px to Top"
         style={{ top: 20, left: "30%" }}
-        visible={modal1Open}
+        open={modal1Open}
         footer={false}
         onOk={() => setModal1Open(false)}
         onCancel={() => setModal1Open(false)}
       >
-        <p>some contents...</p>
-        <p>some contents...</p>
-        <p>some contents...</p>
+        <div>
+          <Avatar
+            style={{
+              backgroundColor: "none",
+              verticalAlign: "middle",
+              marginRight: 50,
+            }}
+            size="large"
+            src={"https://joeschmoe.io/api/v1/random"}
+          />
+          <span>manh tran</span>
+          <hr />
+          <p>
+            <LogoutOutlined /> Log Out
+          </p>
+        </div>
       </Modal>
     </MenuUserWrapper>
   );
