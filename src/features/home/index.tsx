@@ -1,27 +1,31 @@
 import { Avatar, Button, Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/header";
+import { categoryReponse } from "../../types/category";
+import { productReponse } from "../../types/product";
 import useHome, { ReceivedProps } from "./hook";
 import HomeWrapper from "./styled";
 
-const HomeLayout: FC<ReceivedProps> = ({ data }) => {
+const HomeLayout: FC<ReceivedProps> = ({ product, category, nexWatch }) => {
   return (
     <>
       <Header />
       <HomeWrapper>
         <div className="grop_btn">
           <div>
-            {data.map((vl: any, index: number) => (
+            {category.map((vl: categoryReponse, index: number) => (
               <Button key={index} className="btn_menu">
-                Demo
+                {vl.title}
               </Button>
             ))}
           </div>
         </div>
         <div className="grop_card">
-          {data.map((vl: any, index: number) => (
+          {product.map((vl: productReponse, index: number) => (
             <Card
+              onClick={nexWatch}
               key={index}
               style={{ width: 300, border: "none" }}
               cover={
@@ -29,7 +33,7 @@ const HomeLayout: FC<ReceivedProps> = ({ data }) => {
                   style={{ borderRadius: 10 }}
                   width="270"
                   height="200"
-                  src="https://www.youtube.com/embed/5Yn2rdl6MgE"
+                  src={vl.video}
                   title="YouTube video player"
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -39,16 +43,13 @@ const HomeLayout: FC<ReceivedProps> = ({ data }) => {
             >
               <Meta
                 avatar={
-                  <Avatar
-                    style={{ width: 40, height: 40 }}
-                    src="https://joeschmoe.io/api/v1/random"
-                  />
+                  <Avatar style={{ width: 40, height: 40 }} src={vl.avata} />
                 }
-                title="[Playlist] Tình ca tình ta"
+                title={vl.title}
                 description={
                   <p>
-                    manh tran <br />
-                    1ty luot xem <span>.</span> 5 thang truoc
+                    {vl.username} <br />
+                    {vl.viewnumber} lượt xem <span>.</span> {vl.times}
                   </p>
                 }
               />

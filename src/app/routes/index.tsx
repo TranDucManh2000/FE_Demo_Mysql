@@ -5,6 +5,8 @@ import useRoutesHook, { ReceivedProps } from "./hook";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import RoutesWrapper from "./styled";
+import WatchPage from "../../features/watch/index";
+import HomePage from "../../features/home/index";
 
 export interface RoutesRendererProps {
   routes: RouteObject[];
@@ -15,8 +17,8 @@ export function RoutesRenderer({ routes }: RoutesRendererProps) {
   return renderedRoutes;
 }
 
-const HomePage = React.lazy(() => import("../../features/home/index"));
-const WatchPage = React.lazy(() => import("../../features/watch/index"));
+// const HomePage = React.lazy(() => import("../../features/home/index"));
+// const WatchPage = React.lazy(() => import("../../features/watch/index"));
 
 const AppRoutesLayout: FC<ReceivedProps> = ({ props }) => {
   const getRoutes = () => [

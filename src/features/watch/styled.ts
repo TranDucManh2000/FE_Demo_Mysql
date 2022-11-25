@@ -7,6 +7,7 @@ const WatchWrapper = styled.div`
   flex-wrap: wrap;
   width: 100%;
   margin-top: 20px;
+  position: relative;
   .body {
     width: 1280px;
     > h1 {
