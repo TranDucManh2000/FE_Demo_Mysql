@@ -1,6 +1,6 @@
 import { Avatar, Button, Comment, Form, Input, List, Tooltip } from "antd";
 import moment from "moment";
-import React, { createElement, FC } from "react";
+import React, { createElement, FC, useEffect } from "react";
 import useComment, { CommentItem, EditorProps } from "./hook";
 import { ReceivedProps } from "./hook";
 import CommentWrapper from "./styled";
@@ -10,6 +10,8 @@ import {
   LikeFilled,
   LikeOutlined,
 } from "@ant-design/icons";
+import { request } from "../../config/libraries/axios";
+import { commentReponse } from "../../types/comment";
 
 const { TextArea } = Input;
 
@@ -76,6 +78,37 @@ const CommentLayout: FC<ReceivedProps> = ({
       Reply to
     </span>,
   ];
+
+  useEffect(() => {
+    request
+      .get("comment/1")
+      .then(function (response) {
+        if (response.data.status === 200) {
+          response.data.result.map((e: commentReponse) => {
+            setComments([
+              ...comments,
+              {
+                author: e.name,
+                avatar: e.avatar,
+                content: (
+                  <p>
+                    {e.commentdata}
+                    <br />
+                    {actions}
+                  </p>
+                ),
+                datetime: moment("2016-11-22").fromNow(),
+              },
+            ]);
+            return null;
+          });
+        }
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleSubmit = () => {
     if (!value) return;

@@ -6,7 +6,6 @@ export type ReceivedProps = Record<string, any>;
 
 const useWatch = (props: ReceivedProps) => {
   const [product, setProduct] = useState<productReponse | undefined>(undefined);
-  console.log("a");
 
   useEffect(() => {
     request
