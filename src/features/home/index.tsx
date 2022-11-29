@@ -1,7 +1,6 @@
 import { Avatar, Button, Card } from "antd";
 import Meta from "antd/lib/card/Meta";
 import { FC } from "react";
-import { Link } from "react-router-dom";
 import Header from "../../components/header";
 import { categoryReponse } from "../../types/category";
 import { productReponse } from "../../types/product";

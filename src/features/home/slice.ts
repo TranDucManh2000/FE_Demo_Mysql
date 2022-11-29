@@ -3,10 +3,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface CounterState {
   value: number;
+  authen: string;
 }
 
 const initialState: CounterState = {
   value: 0,
+  authen: "",
 };
 
 export const counterSlice = createSlice({
@@ -15,6 +17,9 @@ export const counterSlice = createSlice({
   reducers: {
     setCounter(state, action: PayloadAction<number>) {
       state.value += action.payload;
+    },
+    setAuthen(state, action: PayloadAction<string>) {
+      state.authen = action.payload;
     },
   },
 });

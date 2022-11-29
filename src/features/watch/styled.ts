@@ -3,7 +3,6 @@ import styled from "styled-components";
 const WatchWrapper = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
   width: 100%;
   margin-top: 20px;
@@ -31,7 +30,6 @@ const WatchWrapper = styled.div`
   }
   .tab {
     margin: 20px;
-    margin-top: -850px;
     display: flex;
     flex-wrap: wrap;
     .item {

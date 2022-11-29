@@ -83,26 +83,24 @@ const CommentLayout: FC<ReceivedProps> = ({
     request
       .get("comment/1")
       .then(function (response) {
+        const data: any = [];
         if (response.data.status === 200) {
-          response.data.result.map((e: commentReponse) => {
-            setComments([
-              ...comments,
-              {
-                author: e.name,
-                avatar: e.avatar,
-                content: (
-                  <p>
-                    {e.commentdata}
-                    <br />
-                    {actions}
-                  </p>
-                ),
-                datetime: moment("2016-11-22").fromNow(),
-              },
-            ]);
-            return null;
+          response.data.result.forEach((e: commentReponse) => {
+            data.push({
+              author: e.name,
+              avatar: e.avatar,
+              content: (
+                <p>
+                  {e.commentdata}
+                  <br />
+                  {actions}
+                </p>
+              ),
+              datetime: moment("2016-11-22").fromNow(),
+            });
           });
         }
+        setComments(data);
       })
       .catch((error) => {
         console.log("error", error);
@@ -115,6 +113,7 @@ const CommentLayout: FC<ReceivedProps> = ({
 
     setSubmitting(true);
 
+    request.post("comment/1", { comment: value, date: "1 year" });
     setTimeout(() => {
       setSubmitting(false);
       setValue("");

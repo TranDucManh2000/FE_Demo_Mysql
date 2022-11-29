@@ -1,12 +1,17 @@
 import { BellOutlined, LogoutOutlined } from "@ant-design/icons";
 import { Avatar, Modal } from "antd";
-import { FC, useState } from "react";
+import { FC } from "react";
+import Login from "../../features/login";
 import useMenuUser from "./hook";
 import { ReceivedProps } from "./hook";
 import MenuUserWrapper from "./styled";
 
-const MenuUserLayout: FC<ReceivedProps> = ({ props }) => {
-  const [modal1Open, setModal1Open] = useState(false);
+const MenuUserLayout: FC<ReceivedProps> = ({
+  modal1Open,
+  setModal1Open,
+  modalLogin,
+  setmodalLogin,
+}) => {
   return (
     <MenuUserWrapper>
       <BellOutlined style={{ fontSize: 30, marginRight: 30 }} />
@@ -39,11 +44,13 @@ const MenuUserLayout: FC<ReceivedProps> = ({ props }) => {
           />
           <span>manh tran</span>
           <hr />
+          <p onClick={() => setmodalLogin(true)}>Login</p>
           <p>
             <LogoutOutlined /> Log Out
           </p>
         </div>
       </Modal>
+      <Login modalLogin={modalLogin} setmodalLogin={setmodalLogin} />
     </MenuUserWrapper>
   );
 };

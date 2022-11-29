@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { RouteObject, useRoutes } from "react-router-dom";
 import { ROUTE_PATHS } from "../../constants/route.const";
 import useRoutesHook, { ReceivedProps } from "./hook";
@@ -16,9 +16,6 @@ export function RoutesRenderer({ routes }: RoutesRendererProps) {
   const renderedRoutes = useRoutes(routes);
   return renderedRoutes;
 }
-
-// const HomePage = React.lazy(() => import("../../features/home/index"));
-// const WatchPage = React.lazy(() => import("../../features/watch/index"));
 
 const AppRoutesLayout: FC<ReceivedProps> = ({ props }) => {
   const getRoutes = () => [
